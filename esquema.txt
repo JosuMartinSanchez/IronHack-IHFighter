@@ -1,0 +1,47 @@
+Estructura del proyecto
+
+		HTML
+
+- 1 Página que tenga 
+	-Boton start con la portada del juego
+	- canvas
+	- Restart
+
+		JS
+
+
+-Hojas:
+	-Main
+	-Game
+	- mi avion
+	- enemigos
+	
+
+-Clases: 
+	-game
+	-my avion
+	-aviones enemigos
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
