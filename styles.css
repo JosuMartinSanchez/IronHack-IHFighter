@@ -1,6 +1,58 @@
 
+body{
+  background-image: url(./assets/images/Principalbg.avif);
+    background-size:cover ;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    margin-left: 5%;
+    margin-right: 5%;
+   
+
+}
+#logo-img {
+    width: 900px;
+    margin-bottom: 17%;
+     
+}
+
 
 #my-canvas{
+    
     display: none;
   
+}
+
+
+#start-container{
+  display: flex;
+  align-items: center;
+  
+  height: 800px;
+  justify-content: space-around;
+  color: yellow;
+
+}
+
+
+#startBtn{
+  width: 800px;
+}
+
+#gameOverScreen{
+margin-bottom: 50%;
+display: none;
+
+}
+#game-over{
+
+  width: 500px;
+  margin-left: 25%;
+
+}
+#restartBtn {
+  width: 500px;
+  margin-left:25% ;
 }

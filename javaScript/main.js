@@ -1,9 +1,13 @@
 // GLOBAL VARIABLES
 const canvasDOM= document.querySelector('#my-canvas')
 const ctx= canvasDOM.getContext('2d')
-const startBtn=document.querySelector('#startGame')
-
+const startBtn=document.querySelector('#startBtn')
+const startScreen=document.querySelector('#start-container')
+const gameOverScreen=document.querySelector('#gameOverScreen')
+const restartBtn=document.querySelector('#restartBtn')
 let game;
+
+
 
 
 
@@ -11,7 +15,9 @@ let game;
 //STATE MANAGEMENT FUNCTION
 const startGame = ()=>{
 
-canvasDOM.style.display='block'
+canvasDOM.style.display='flex'
+startScreen.style.display='none'
+gameOverScreen.style.display='none'
 
 game = new Game ()
 
@@ -22,12 +28,15 @@ game.gameLoop()
 // move and shoot event
 const move=(event)=>{
 
-    if (event.code === 'ArrowRight') {
+    if (event.code === 'ArrowRight' && game.myAeroplane.x+game.myAeroplane.w < canvasDOM.width) {
         game.myAeroplane.moveMyAeroplaneR()
-    }else if (event.code === 'ArrowLeft') {
+    }else if (event.code === 'ArrowLeft' && game.myAeroplane.x >0) {
         game.myAeroplane.moveMyAeroplaneL()
     }else if (event.code === 'ArrowUp') {
         game.myAeroplane.moveMyAeroplaneUpp()
+    }else if (event.code === 'Space'){
+        game.shoot()
+       
     }
 }
 
@@ -36,5 +45,7 @@ const move=(event)=>{
 //ADD EVENT LISTENERS
 
 startBtn.addEventListener('click',startGame)
+restartBtn.addEventListener('click',startGame)
+
 
 window.addEventListener('keydown',move)
