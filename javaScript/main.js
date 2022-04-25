@@ -5,7 +5,12 @@ const startBtn=document.querySelector('#startBtn')
 const startScreen=document.querySelector('#start-container')
 const gameOverScreen=document.querySelector('#gameOverScreen')
 const restartBtn=document.querySelector('#restartBtn')
+const score=document.querySelector('#scoreP')
+
 let game;
+let contador1=0;
+
+score.innerText=contador1;
 
 
 
@@ -35,7 +40,7 @@ const move=(event)=>{
     }else if (event.code === 'ArrowUp') {
         game.myAeroplane.moveMyAeroplaneUpp()
     }else if (event.code === 'Space'){
-        game.shoot()
+        game.shot()
        
     }
 }

@@ -1,7 +1,7 @@
 
 body{
-  background-image: url(./assets/images/Principalbg.avif);
-    background-size:cover ;
+  background-image: url(./assets/images/principalBg.png);
+    background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
@@ -40,7 +40,18 @@ body{
 #startBtn{
   width: 800px;
 }
+/*Score*/
 
+#score-container{
+  display: flex;
+  
+  color: yellow;
+}
+
+
+
+
+/*Game Over*/
 #gameOverScreen{
 margin-bottom: 50%;
 display: none;

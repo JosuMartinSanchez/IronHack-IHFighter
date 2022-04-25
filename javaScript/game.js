@@ -4,34 +4,38 @@ class Game {
         this.bg = new Image ();
         this.bg.src='./assets/images/canvasbg.jpg';
         this.myAeroplane= new MyAeroplane ();
-        this.enemiArr= [new Enemi ()];
+        this.enemiArr= [new Enemi (0,'../assets/images/enemi1.png'),new Enemi(0,'../assets/images/enemi2.png')];
         this.lightingArr = [];
         this.isGameOn =true;
-       
+        
     }
 
     addNewEnemi=()=>{
-       let newEnemi = new Enemi ()
-      let randonEnemi = Math.random() * (canvasDOM.width-this.myAeroplane.w)
+       
+      let randonEnemi = Math.random() * (canvasDOM.width-this.myAeroplane.w) 
+      let randomEnemi2 = Math.random() * (canvasDOM.width-this.myAeroplane.w) 
         if (this.enemiArr[this.enemiArr.length -1].y > 150){
             
-        let newRandomEnemi= new Enemi(randonEnemi)
+        let newRandomEnemi= new Enemi(randonEnemi,"../assets/images/enemi1.png")
         this.enemiArr.push(newRandomEnemi)
-
-        };
-
-
-
+        let newRandomEnemi2= new Enemi (randomEnemi2,"../assets/images/enemi2.png")
+        this.enemiArr.push(newRandomEnemi2)
+        }
+        
     };
-    shoot=()=>{
-        let lightingShoot= new Lighting (this.myAeroplane.x + this.myAeroplane.w/2,this.myAeroplane.y)
-        this.drawlighting()
-        this.movelighting
-        this.lightingArr.push(lightingShoot)   
+    shot=()=>{
+        let centerShot=new Lighting (this.myAeroplane.x +59,this.myAeroplane.y -58)
+        this.lightingArr.push(centerShot)
+    }
+  
+    gameOverColisions=()=>{
+        if(this.myAeroplane.y+this.myAeroplane.h>canvasDOM.height){
 
-    };
-    gameOverColision1=()=>{
+            this.isGameOn=false;
+            canvasDOM.style.display='none';
+            gameOverScreen.style.display='block'
 
+        }
         this.enemiArr.forEach((eachEnemi)=>{
             
             if (this.myAeroplane.x < eachEnemi.x + eachEnemi.w &&
@@ -47,9 +51,27 @@ class Game {
     
 
         })
-    }
-        
+    };
+    shotColision=()=>{
 
+        this.enemiArr.forEach((eachEnemi,ie)=>{
+            this.lightingArr.forEach((eachLight,il)=>{
+
+                if (eachLight.x < eachEnemi.x + eachEnemi.w &&
+                    eachLight.x + eachLight.w > eachEnemi.x &&
+                    eachLight.y < eachEnemi.y + eachEnemi.h &&
+                    eachLight.h + eachLight.y > eachEnemi.y){
+                        
+                        this.enemiArr.splice(ie,1)
+                        this.lightingArr.splice(ie,1)
+                        let contador1 = contador1 +1
+                        
+                    }
+            })
+        })
+    };
+
+  
         
         
         
@@ -74,26 +96,32 @@ class Game {
 
         //2.acciones y movimientos
           this.myAeroplane.gravityF()
-       
-         this.enemiArr.forEach ((eachEnemi)=>{
+          
+          this.enemiArr.forEach ((eachEnemi)=>{
             eachEnemi.moveEnemi()
         });
-        this.gameOverColision1()
-        //this.enemi.moveEnemi()
+        this.lightingArr.forEach((eachLight)=>{
+            
+            eachLight.movelighting()
+            
+        });
+        this.gameOverColisions()
+        this.shotColision()
+        
         this.addNewEnemi() 
         //3.dibujar elementos
         ctx.drawImage(this.bg,0,0,canvasDOM.width,canvasDOM.height);
         this.myAeroplane.drawMyAeroplane();
-        this.enemiArr.forEach((eachEnemi)=>{
-            eachEnemi.drawEnemi()
-        });
-
+        
         this.lightingArr.forEach((eachLight)=>{
             
-
-            eachLight.drawLcd
-            eachLight.movelighting()
-
+            eachLight.drawlighting()
+            
+        });
+        this.enemiArr.forEach((eachEnemi)=>{
+            
+            eachEnemi.drawEnemi()
+            
         });
          //4.control y recursividad
         if (this.isGameOn===true) {
