@@ -74,7 +74,30 @@ font-size: 90px;
   width: 180px;
   display: none;
 }
-
+/*  Volume */
+#volume-container{
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  margin-right: 450px;
+}
+#volumeBtn{
+  height: 130px;
+  display:none ;
+}
+#noVolumeBtn{
+  height: 130px;
+  display: none
+  
+}
+#volumeBtn:hover{
+ cursor: pointer;
+ height: 170px;
+}
+#noVolumeBtn:hover{
+  cursor: pointer;
+  height: 170px;
+}
 
 /*Game Over*/
 #gameOverScreen{

@@ -75,6 +75,8 @@ class Game {
         canvasDOM.style.display = "none";
         this.isGameOn = false;
         gameOverScreen.style.display = "block";
+        volumeDom.style.display='none'
+        noVolumeDom.style.display='none'
       } else {
         shield = false;
       }
@@ -90,6 +92,8 @@ class Game {
           canvasDOM.style.display = "none";
           this.isGameOn = false;
           gameOverScreen.style.display = "block";
+          volumeDom.style.display='none'
+          noVolumeDom.style.display='none'
         } else {
           shield = false;
           this.enemiArr.splice(ie, 1);
@@ -116,6 +120,7 @@ class Game {
           this.splosionSound.currentTime = 0;
           this.splosionSound.preload = "auto";
           this.splosionSound.play();
+          this.splosionSound.volume=0.4
         }
       });
     });

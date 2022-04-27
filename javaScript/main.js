@@ -8,6 +8,8 @@ const restartBtn=document.querySelector('#restartBtn')
 const score=document.querySelector('#scoreP')
 const scoreContainer=document.querySelector('#score-container')
 const shieldDOM=document.querySelector('#shield')
+const volumeDom=document.querySelector('#volumeBtn')
+const noVolumeDom=document.querySelector('#noVolumeBtn')
 let game;
 let counter=0;
 let shield = false;
@@ -30,6 +32,8 @@ canvasDOM.style.display='flex'
 startScreen.style.display='none'
 gameOverScreen.style.display='none'
 scoreContainer.style.display='block'
+noVolumeDom.style.display='flex'
+
 
 
 game = new Game ()
@@ -56,13 +60,33 @@ const move=(event)=>{
         game.myAeroplane.moveMyAeroplaneDown()
     }
 }
+// audio control
+const volumeOn=()=>{
+ bgSound.volume=0.5
+ game.shotSound.volume=0.5
+ game.splosionSound.volume=0.5
+ noVolumeDom.style.display='flex'
+ volumeDom.style.display='none' 
+}
 
+const volumeOf=()=>{
+bgSound.volume=0.0
+game.shotSound.volume=0.0
+game.splosionSound.volume=0.0
+
+
+
+volumeDom.style.display='flex'   
+noVolumeDom.style.display='none'
+}
 
 
 //ADD EVENT LISTENERS
 
 startBtn.addEventListener('click',startGame)
 restartBtn.addEventListener('click',startGame)
+volumeDom.addEventListener('click',volumeOn)
+noVolumeDom.addEventListener('click',volumeOf)
 
 
 window.addEventListener('keydown',move)
