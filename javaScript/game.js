@@ -73,7 +73,19 @@ class Game {
     this.shotSound.preload='auto'
         this.shotSound.play()
   };
-
+  /*supershot = () => {
+    let centerShot = new Lighting(
+      this.myAeroplane.x + 59,
+      this.myAeroplane.y - 58
+    );
+    let oneShot = new Lighting(this.myAeroplane.x + 159,
+      this.myAeroplane.y - 58)
+    this.lightingArr.push(centerShot);
+    
+    /*this.splosionSound.pause();
+    this.splosionSound.currentTime = 0;
+    this.shotSound.preload='auto'
+    this.shotSound.play()*/
   gameOverColisions = () => {
     if (this.myAeroplane.y + this.myAeroplane.h > canvasDOM.height) {
       shield = false;
@@ -84,6 +96,9 @@ class Game {
         volumeDom.style.display='none'
         noVolumeDom.style.display='none'
         shieldDOM.style.display='none'
+        masVolumenDom.style.display='none'
+        menosVolumenDom.style.display='none'
+        
       } else {
         shield = false; 
       }
@@ -103,6 +118,8 @@ class Game {
           volumeDom.style.display='none'
           noVolumeDom.style.display='none'
           shieldDOM.style.display='none'
+          masVolumenDom.style.display='none'
+          menosVolumenDom.style.display='none'
         } else {
           shield = false;
           this.enemiArr.splice(ie, 1);
@@ -167,10 +184,11 @@ class Game {
     this.lightingArr.forEach((eachLight) => {
       eachLight.movelighting();
     });
+    this.shieldActivate();
     this.gameOverColisions();
     this.shotColision();
     this.addNewEnemi();
-    this.shieldActivate();
+    
 
     //3.dibujar elementos
     ctx.drawImage(this.bg, 0, 0, canvasDOM.width, canvasDOM.height);
@@ -183,10 +201,16 @@ class Game {
     this.lightingArr.forEach((eachLight) => {
       eachLight.drawlighting();
     });
+    /*this.lightingArr.forEach((eachLight)=>{
+      eachLight. drawlsuperighting()
+
+    })*/
+
+
     this.enemiArr.forEach((eachEnemi) => {
       eachEnemi.drawEnemi();
     });
-    console.log(shield);
+    
     //4.control y recursividad
     if (this.isGameOn === true) {
       requestAnimationFrame(this.gameLoop);
