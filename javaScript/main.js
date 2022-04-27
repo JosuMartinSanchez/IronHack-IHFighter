@@ -10,6 +10,8 @@ const scoreContainer=document.querySelector('#score-container')
 const shieldDOM=document.querySelector('#shield')
 const volumeDom=document.querySelector('#volumeBtn')
 const noVolumeDom=document.querySelector('#noVolumeBtn')
+const masVolumenDom=document.querySelector("#masVolumeBtn")
+const menosVolumenDom=document.querySelector("#menosVolumeBtn")
 let game;
 let counter=0;
 let shield = false;
@@ -25,7 +27,6 @@ const bgSound= new Audio('./audio/bgSound.mp3')
 const startGame = ()=>{
 bgSound.preload='auto'
 bgSound.play()
- shield=false   
 counter=0
 score.innerText=counter
 canvasDOM.style.display='flex'
@@ -33,7 +34,8 @@ startScreen.style.display='none'
 gameOverScreen.style.display='none'
 scoreContainer.style.display='block'
 noVolumeDom.style.display='flex'
-
+masVolumenDom.style.display='flex'
+menosVolumenDom.style.display='flex'
 
 
 game = new Game ()
@@ -53,9 +55,9 @@ const move=(event)=>{
         game.myAeroplane.moveMyAeroplaneUpp()
     }else if (event.code === 'Space'){
     
-            game.shot()
-        game.shotSound.preload='auto'
-        game.shotSound.play()
+        game.shot()
+        
+        
     }else if(event.code==='ArrowDown'){
         game.myAeroplane.moveMyAeroplaneDown()
     }
@@ -63,21 +65,31 @@ const move=(event)=>{
 // audio control
 const volumeOn=()=>{
  bgSound.volume=0.5
- game.shotSound.volume=0.5
- game.splosionSound.volume=0.5
+ game.shotSound.volume=0.2
+ game.splosionSound.volume=0.2
  noVolumeDom.style.display='flex'
  volumeDom.style.display='none' 
 }
 
 const volumeOf=()=>{
 bgSound.volume=0.0
-game.shotSound.volume=0.0
-game.splosionSound.volume=0.0
-
-
-
+game.shotSound.volume=0
+game.splosionSound.volume=0
 volumeDom.style.display='flex'   
 noVolumeDom.style.display='none'
+}
+const masVolumen=()=>{
+    bgSound.volume=bgSound.volume + 0.1   
+    game.shotSound.volume= game.shotSound.volume +0.1
+    game.splosionSound.volume=game.splosionSound.volume +0.1
+
+}
+
+const menosVolumen=()=>{
+bgSound.volume=bgSound.volume - 0.1
+game.shotSound.volume= game.shotSound.volume -0.1
+game.splosionSound.volume=game.splosionSound.volume -0.1    
+    
 }
 
 
@@ -87,6 +99,9 @@ startBtn.addEventListener('click',startGame)
 restartBtn.addEventListener('click',startGame)
 volumeDom.addEventListener('click',volumeOn)
 noVolumeDom.addEventListener('click',volumeOf)
+masVolumenDom.addEventListener('click',masVolumen)
+menosVolumenDom.addEventListener('click',menosVolumen)
+
 
 
 window.addEventListener('keydown',move)

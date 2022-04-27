@@ -12,19 +12,21 @@ class Game {
 
     this.shotSound = new Audio("./audio/shootSound.mp3");
     this.splosionSound = new Audio("./audio/explosionSound.mp3");
-    this.removeShield = false;
+    
   }
 
   addNewEnemi = () => {
     let randonEnemi = Math.random() * (canvasDOM.width - this.myAeroplane.w);
     let randomEnemi2 = Math.random() * (canvasDOM.width - this.myAeroplane.w);
-    let speedIncrease = 0.15;
-    if (counter >= 2) {
-      speedIncrease = 0.3;
+    let speedIncrease = 0.2;
+    if (counter >= 10) {
+      speedIncrease = 0.8;
       console.log("0.2");
     } else if (counter >= 5) {
-      console.log("0.5");
-      speedIncrease = 0.4;
+      
+      speedIncrease = 0.5;
+    }else if(counter >= 2){
+      speedIncrease=0.2
     }
     while (randomEnemi2 < randonEnemi + 90 && randomEnemi2 > randonEnemi) {
       randomEnemi2 = Math.random() * (canvasDOM.width - this.myAeroplane.w);
@@ -66,6 +68,10 @@ class Game {
       this.myAeroplane.y - 58
     );
     this.lightingArr.push(centerShot);
+    this.splosionSound.pause();
+    this.splosionSound.currentTime = 0;
+    this.shotSound.preload='auto'
+        this.shotSound.play()
   };
 
   gameOverColisions = () => {
@@ -77,9 +83,11 @@ class Game {
         gameOverScreen.style.display = "block";
         volumeDom.style.display='none'
         noVolumeDom.style.display='none'
+        shieldDOM.style.display='none'
       } else {
-        shield = false;
+        shield = false; 
       }
+      
     }
     this.enemiArr.forEach((eachEnemi, ie) => {
       if (
@@ -94,6 +102,7 @@ class Game {
           gameOverScreen.style.display = "block";
           volumeDom.style.display='none'
           noVolumeDom.style.display='none'
+          shieldDOM.style.display='none'
         } else {
           shield = false;
           this.enemiArr.splice(ie, 1);
@@ -120,7 +129,7 @@ class Game {
           this.splosionSound.currentTime = 0;
           this.splosionSound.preload = "auto";
           this.splosionSound.play();
-          this.splosionSound.volume=0.4
+          
         }
       });
     });
@@ -170,13 +179,14 @@ class Game {
     } else {
       this.myAeroplane.drawMyAeroplaneShield();
     }
-
+    console.log(shield);
     this.lightingArr.forEach((eachLight) => {
       eachLight.drawlighting();
     });
     this.enemiArr.forEach((eachEnemi) => {
       eachEnemi.drawEnemi();
     });
+    console.log(shield);
     //4.control y recursividad
     if (this.isGameOn === true) {
       requestAnimationFrame(this.gameLoop);

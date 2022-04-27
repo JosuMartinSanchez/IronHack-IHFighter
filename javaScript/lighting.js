@@ -15,4 +15,9 @@ class Lighting {
     movelighting= ()=>{
       this.y = this.y - this.moveSpeed
     };
+    superdrawlighting=()=>{
+
+      
+
+    }
 }

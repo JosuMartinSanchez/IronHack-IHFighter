@@ -14,7 +14,7 @@ body{
 }
 #logo-img {
     width: 900px;
-    margin-bottom: 17%;
+    margin-bottom: 10%;
      
 }
 
@@ -98,6 +98,26 @@ font-size: 90px;
   cursor: pointer;
   height: 170px;
 }
+#masVolumeBtn{
+  height: 130px;
+  display: none
+}
+#menosVolumeBtn{
+  height: 130px;
+  display: none
+
+}
+#masVolumeBtn:hover{
+  cursor: pointer;
+  height: 170px;
+}
+#menosVolumeBtn:hover{
+  cursor: pointer;
+  height: 170px;
+
+}
+
+
 
 /*Game Over*/
 #gameOverScreen{
