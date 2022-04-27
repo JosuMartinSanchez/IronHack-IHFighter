@@ -57,12 +57,22 @@ body{
 #score-container{
   margin-left: 50px;
   display: none;
+  
 }
 #scoreP{
 color: yellow;
 font-size: 90px;
 -webkit-text-stroke: 3px black;
 
+}
+#second-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#shield{
+  width: 180px;
+  display: none;
 }
 
 
@@ -83,5 +93,5 @@ display: none;
 
 #restartBtn:hover {
   cursor:pointer ;
-  transform:600px ;
+  width: 650px;
 }

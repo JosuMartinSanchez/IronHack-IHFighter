@@ -7,6 +7,7 @@ const gameOverScreen=document.querySelector('#gameOverScreen')
 const restartBtn=document.querySelector('#restartBtn')
 const score=document.querySelector('#scoreP')
 const scoreContainer=document.querySelector('#score-container')
+const shieldDOM=document.querySelector('#shield')
 let game;
 let counter=0;
 let shield = false;
@@ -47,7 +48,8 @@ const move=(event)=>{
     }else if (event.code === 'ArrowUp') {
         game.myAeroplane.moveMyAeroplaneUpp()
     }else if (event.code === 'Space'){
-        game.shot()
+    
+            game.shot()
         game.shotSound.preload='auto'
         game.shotSound.play()
     }else if(event.code==='ArrowDown'){
