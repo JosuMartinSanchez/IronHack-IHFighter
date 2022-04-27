@@ -5,7 +5,7 @@ class Lighting {
       this.w = 25 ;
       this.h = 80 ;
       this.img = new Image();
-      this.img.src = "../assets/images/lightning.png";
+      this.img.src = "./assets/images/lightning.png";
       this.moveSpeed= 2;
   
     }

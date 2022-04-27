@@ -5,11 +5,11 @@ class MyAeroplane {
     this.w = 150;
     this.h = 150;
     this.img = new Image();
-    this.img.src = "../assets/images/myaerplane.png";
+    this.img.src = "./assets/images/myaerplane.png";
     this.moveSpeed= 20;
     this.gravitySpeed= 0.2
     this.img2=new Image ()
-    this.img2.src='../assets/images/aeroplaneShield.png'
+    this.img2.src='./assets/images/aeroplaneShield.png'
   }
   drawMyAeroplane = () => {
     ctx.drawImage(this.img,this.x,this.y,this.w,this.h)

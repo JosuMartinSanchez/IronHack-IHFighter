@@ -13,7 +13,7 @@ const noVolumeDom=document.querySelector('#noVolumeBtn')
 let game;
 let counter=0;
 let shield = false;
-const bgSound= new Audio('../audio/bgSound.mp3')
+const bgSound= new Audio('./audio/bgSound.mp3')
 
 
 

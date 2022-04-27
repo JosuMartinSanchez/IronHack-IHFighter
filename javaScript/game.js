@@ -4,14 +4,14 @@ class Game {
     this.bg.src = "./assets/images/canvasbg.jpg";
     this.myAeroplane = new MyAeroplane();
     this.enemiArr = [
-      new Enemi(0, "../assets/images/enemi1.png", 0.2),
-      new Enemi(500, "../assets/images/enemi2.png", 0.2),
+      new Enemi(0, "./assets/images/enemi1.png", 0.2),
+      new Enemi(500, "./assets/images/enemi2.png", 0.2),
     ];
     this.lightingArr = [];
     this.isGameOn = true;
 
-    this.shotSound = new Audio("../audio/shootSound.mp3");
-    this.splosionSound = new Audio("../audio/explosionSound.mp3");
+    this.shotSound = new Audio("./audio/shootSound.mp3");
+    this.splosionSound = new Audio("./audio/explosionSound.mp3");
     this.removeShield = false;
   }
 
@@ -34,13 +34,13 @@ class Game {
       if (this.enemiArr[this.enemiArr.length - 1].y > 150) {
         let newRandomEnemi = new Enemi(
           randonEnemi,
-          "../assets/images/enemi1.png",
+          "./assets/images/enemi1.png",
           speedIncrease
         );
         this.enemiArr.push(newRandomEnemi);
         let newRandomEnemi2 = new Enemi(
           randomEnemi2,
-          "../assets/images/enemi2.png",
+          "./assets/images/enemi2.png",
           speedIncrease
         );
         this.enemiArr.push(newRandomEnemi2);
@@ -48,13 +48,13 @@ class Game {
     } else {
       let newRandomEnemi = new Enemi(
         randonEnemi,
-        "../assets/images/enemi1.png",
+        "./assets/images/enemi1.png",
         speedIncrease
       );
       this.enemiArr.push(newRandomEnemi);
       let newRandomEnemi2 = new Enemi(
         randomEnemi2,
-        "../assets/images/enemi2.png",
+        "./assets/images/enemi2.png",
         speedIncrease
       );
       this.enemiArr.push(newRandomEnemi2);
