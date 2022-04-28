@@ -14,19 +14,58 @@
     
     <div id="start-container">
         
-        <div id="intro"><p>BIENVENIDO al espacio IH. Este espacio es muy peligroso y está lleno de enemigos. Tienes una misión muy importante que es eliminar al mayor objetivo de enemigos posibles y dejar que pasen el menor de enemigos ya que todos los enemigos tienen la misión de destruir nuestro planeta y acabar con todo aquello que queremos. Confiamos en ti para lograr evitar esta invasión ya que eres nuestra última esperanza. DESPEGA Y CUMPLE CON LA MISIÓN
+        <div id="intro"><p>BIENVENIDO al espacio IH. Este espacio es muy peligroso y está lleno de enemigos. Tienes una misión muy importante, eliminar al mayor de enemigos posibles y dejar que pasen el menor de enemigos posibles ya que todos los enemigos tienen la misión de destruir nuestro planeta y acabar con todo aquello que queremos. Confiamos en ti para lograr evitar esta invasión ya que eres nuestra última esperanza. DESPEGA Y CUMPLE CON LA MISIÓN
         </p></div>
         <div>
             <img  id="startBtn" src="./assets/images/START.png" alt="startBtn">
         </div>
         
-        <div id="instructions">
-            
-                <span></span>
-                <br>              
-                
-                <ul>
-                    
+        <div id="wrap-instructions">
+            <div id="instructions">
+                <ul>     
+                    <li>INSTRUCCIONES DE JUEGO</li>
+                    <br>
+                    <li>W Ascender</li>
+                    <br>
+                    <li>A Izquierda</li>
+                    <br>
+                    <li>D Derecha</li>
+                    <br>
+                    <li>S Desceder</li>
+                    <br>
+                    <li>SPACE Disparo</li>
+                    <br>
+                    <li>E Habilida Especial</li>
+                    <br> 
+                </ul>
+            </div>
+            <hr>
+            <div id="specialHabilities">
+                <p>Tienes 2 tipos de hablidades especiales:</p> 
+                <ol>
+                    <li> <b>SHIELD:</b> es automática y se activa según vayas aumentado el score, esta habilidad te protegera de colisionar con cualquier enemigo. En el momento de la colisión el enemigo desaparecerá y tu escudo tambien. El escudo se volverá a activar cuando lleges a determinados scores.</li>
+                    <br>
+                    <li> <b>SUPERSHOT:</b> esta habilidad disparará 6 rayos a la vez, al igual que shield se activa en determinados scores. Utilizala solo en situaciones comprometidas ya que una vez activada únicamente podrás usarla 2 veces.</li>
+                </ol>
+
+            </div>         
+          
+        </div>
+
+    </div >
+
+    <div id="main-container">
+        <canvas id="my-canvas" width="800" height="1000"></canvas>
+       
+    <div id="second-container">
+        <div id="score-container">
+                <img src="./assets/images/score.png" alt="score"> 
+                <span id="scoreP">0</span>
+            </div>
+            <div id="play-instructions-container">
+                <div id="play-instructions">
+                    <ul>
+   
                         <li>INSTRUCCIONES DE JUEGO</li>
                         <br>
                         <li>W Ascender</li>
@@ -41,23 +80,25 @@
                         <br>
                         <li>E Habilida Especial</li>
                         <br> 
-                </ul>
-                <span></span>
-            
-          
-        </div>
-    </div >
-    <div id="main-container">
-        <canvas id="my-canvas" width="800" height="1000"></canvas>
-       
-    <div id="second-container">
-        <div id="score-container">
-                <img src="./assets/images/score.png" alt="score"> 
-                <span id="scoreP">0</span>
-            </div>
+                    </ul>
+                </div>
+                <hr>
+                <div id="specialHabilities2">
+                    <p>Tienes 2 tipos de hablidades especiales:</p> 
+                    <ol>
+                        <li> <b>SHIELD:</b> es automática y se activa según vayas aumentado el score, esta habilidad te protegera de colisionar con cualquier enemigo. En el momento de la colisión el enemigo desaparecerá y tu escudo tambien. El escudo se volverá a activar cuando lleges a determinados scores.</li>
+                        <br>
+                        <li> <b>SUPERSHOT:</b> esta habilidad disparará 6 rayos a la vez, al igual que shield se activa en determinados scores. Utilizala solo en situaciones comprometidas ya que una vez activada únicamente podrás usarla 2 veces.</li>
+                    </ol>
+                </div>         
+            </div >
             <div id="abilities">
                 <img id="shield" src="./assets/images/aeroplaneShield.png">
+                <img id="superShot" src="./assets/images/SuperShotAeroplane.png">
             </div>
+            
+            
+
         </div>
     </div>
     <div id="volume-container">

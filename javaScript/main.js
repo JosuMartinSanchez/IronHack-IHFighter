@@ -12,6 +12,8 @@ const volumeDom = document.querySelector("#volumeBtn");
 const noVolumeDom = document.querySelector("#noVolumeBtn");
 const masVolumenDom = document.querySelector("#masVolumeBtn");
 const menosVolumenDom = document.querySelector("#menosVolumeBtn");
+const playInstuctionDom=document.querySelector("#play-instructions-container")
+const supershotDom=document.querySelector("#superShot")
 let game;
 let counter = 0;
 let supershotCounter=0;
@@ -23,7 +25,9 @@ const bgSound = new Audio("./audio/bgSound.mp3");
 //STATE MANAGEMENT FUNCTION
 const startGame = () => {
   bgSound.preload = "auto";
+  bgSound.load()
   bgSound.play();
+  bgSound.volume = 0.2;
   counter = 0;
   score.innerText = counter;
   canvasDOM.style.display = "flex";
@@ -33,7 +37,7 @@ const startGame = () => {
   noVolumeDom.style.display = "flex";
   masVolumenDom.style.display = "flex";
   menosVolumenDom.style.display = "flex";
-
+  playInstuctionDom.style.display="block"
   game = new Game();
 
   game.gameLoop();
@@ -76,7 +80,7 @@ const move = (event) => {
 };
 // audio control
 const volumeOn = () => {
-  bgSound.volume = 0.5;
+  bgSound.volume = 0.2;
   game.shotSound.volume = 0.2;
   game.splosionSound.volume = 0.2;
   noVolumeDom.style.display = "flex";

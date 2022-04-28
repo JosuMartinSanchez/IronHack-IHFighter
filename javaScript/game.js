@@ -116,6 +116,8 @@ class Game {
         shieldDOM.style.display='none'
         masVolumenDom.style.display='none'
         menosVolumenDom.style.display='none'
+        playInstuctionDom.style.display="none"
+        supershotDom.style.display="none"
         
       } else {
         shield = false; 
@@ -138,6 +140,8 @@ class Game {
           shieldDOM.style.display='none'
           masVolumenDom.style.display='none'
           menosVolumenDom.style.display='none'
+          playInstuctionDom.style.display="none"
+          supershotDom.style.display="none"
         } else {
           shield = false;
           this.enemiArr.splice(ie, 1);
@@ -195,6 +199,11 @@ class Game {
       superShotActivate = true;
     }
 
+    if (superShotActivate === true) {
+      supershotDom.style.display="flex"
+    }else if (superShotActivate=== false){
+      supershotDom.style.display="none"
+    }
   };
 
   gameLoop = () => {
