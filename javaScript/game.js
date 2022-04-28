@@ -5,7 +5,7 @@ class Game {
     this.myAeroplane = new MyAeroplane();
     this.enemiArr = [
       new Enemi(0, "./assets/images/enemi1.png", 0.2),
-      new Enemi(500, "./assets/images/enemi2.png", 0.2),
+      new Enemi(500, "./assets/images/enemi3.png", 0.2),
     ];
     this.lightingArr = [];
     this.isGameOn = true;
@@ -21,7 +21,7 @@ class Game {
     let speedIncrease = 0.2;
     if (counter >= 10) {
       speedIncrease = 0.8;
-      console.log("0.2");
+      
     } else if (counter >= 5) {
       
       speedIncrease = 0.5;
@@ -42,7 +42,7 @@ class Game {
         this.enemiArr.push(newRandomEnemi);
         let newRandomEnemi2 = new Enemi(
           randomEnemi2,
-          "./assets/images/enemi2.png",
+          "./assets/images/enemi3.png",
           speedIncrease
         );
         this.enemiArr.push(newRandomEnemi2);
@@ -56,7 +56,7 @@ class Game {
       this.enemiArr.push(newRandomEnemi);
       let newRandomEnemi2 = new Enemi(
         randomEnemi2,
-        "./assets/images/enemi2.png",
+        "./assets/images/enemi3.png",
         speedIncrease
       );
       this.enemiArr.push(newRandomEnemi2);
@@ -73,19 +73,37 @@ class Game {
     this.shotSound.preload='auto'
         this.shotSound.play()
   };
-  /*supershot = () => {
+  supershot = () => {
     let centerShot = new Lighting(
       this.myAeroplane.x + 59,
       this.myAeroplane.y - 58
     );
+    this.lightingArr.push(centerShot);
     let oneShot = new Lighting(this.myAeroplane.x + 159,
       this.myAeroplane.y - 58)
-    this.lightingArr.push(centerShot);
-    
-    /*this.splosionSound.pause();
+    this.lightingArr.push(oneShot);
+    let secondShot = new Lighting(this.myAeroplane.x + 259,
+      this.myAeroplane.y - 58)
+    this.lightingArr.push(secondShot);
+    let thirdShot = new Lighting(this.myAeroplane.x + 359,
+      this.myAeroplane.y - 58)
+    this.lightingArr.push(thirdShot);
+    let fourtShot = new Lighting(this.myAeroplane.x - 50,
+      this.myAeroplane.y - 58)
+    this.lightingArr.push(fourtShot);
+    let fiveShot = new Lighting(this.myAeroplane.x - 159,
+      this.myAeroplane.y - 58)
+    this.lightingArr.push(fiveShot);
+    let sixShot = new Lighting(this.myAeroplane.x - 259,
+      this.myAeroplane.y - 58)
+    this.lightingArr.push(sixShot);
+
+
+    this.splosionSound.pause();
     this.splosionSound.currentTime = 0;
     this.shotSound.preload='auto'
-    this.shotSound.play()*/
+    this.shotSound.play()
+  }
   gameOverColisions = () => {
     if (this.myAeroplane.y + this.myAeroplane.h > canvasDOM.height) {
       shield = false;
@@ -167,6 +185,17 @@ class Game {
       shieldDOM.style.display = "none";
     }
   };
+  supershotActivate =()=>{
+    if (
+      counter === 2 ||
+      counter === 100 ||
+      counter === 150 ||
+      counter === 200
+    ) {
+      superShotActivate = true;
+    }
+
+  };
 
   gameLoop = () => {
     //1.borrar el cambas
@@ -185,9 +214,11 @@ class Game {
       eachLight.movelighting();
     });
     this.shieldActivate();
+    this.supershotActivate()
     this.gameOverColisions();
     this.shotColision();
     this.addNewEnemi();
+    console.log(superShotActivate);
     
 
     //3.dibujar elementos
@@ -197,15 +228,11 @@ class Game {
     } else {
       this.myAeroplane.drawMyAeroplaneShield();
     }
-    console.log(shield);
+    
     this.lightingArr.forEach((eachLight) => {
       eachLight.drawlighting();
     });
-    /*this.lightingArr.forEach((eachLight)=>{
-      eachLight. drawlsuperighting()
-
-    })*/
-
+   
 
     this.enemiArr.forEach((eachEnemi) => {
       eachEnemi.drawEnemi();

@@ -14,7 +14,10 @@ const masVolumenDom = document.querySelector("#masVolumeBtn");
 const menosVolumenDom = document.querySelector("#menosVolumeBtn");
 let game;
 let counter = 0;
+let supershotCounter=0;
 let shield = false;
+let superShotActivate=false
+    
 const bgSound = new Audio("./audio/bgSound.mp3");
 
 //STATE MANAGEMENT FUNCTION
@@ -49,6 +52,25 @@ const move = (event) => {
   } else if (event.code === "Space") {
     game.shot();
   } else if (event.code === "ArrowDown") {
+    game.myAeroplane.moveMyAeroplaneDown();
+  } else if (event.code === "KeyE"){
+    if(superShotActivate===true){
+      game.supershot()
+     supershotCounter ++
+     if(supershotCounter % 2 ===0)
+        superShotActivate = false
+    }
+    
+  } else if (
+    event.code === "KeyD" &&
+    game.myAeroplane.x + game.myAeroplane.w < canvasDOM.width
+  ) {
+    game.myAeroplane.moveMyAeroplaneR();
+  } else if (event.code === "KeyA" && game.myAeroplane.x > 0) {
+    game.myAeroplane.moveMyAeroplaneL();
+  } else if (event.code === "KeyW") {
+    game.myAeroplane.moveMyAeroplaneUpp();
+  }else if (event.code === "KeyS") {
     game.myAeroplane.moveMyAeroplaneDown();
   }
 };
