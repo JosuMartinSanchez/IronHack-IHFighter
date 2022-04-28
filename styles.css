@@ -4,11 +4,13 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items:center ;
     margin-left: 5%;
     margin-right: 5%;
+    overflow: hidden;
    
       /*Header*/
 }
@@ -18,6 +20,10 @@ body{
     margin-bottom: 10%;
      
 }
+#logo-img2 {
+  margin-bottom:50px ;
+   
+}
 /* Start Game*/
 #start-container{
   text-align: center;
@@ -25,7 +31,7 @@ body{
 }
 #intro{
   height: 500px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bolder;
   width: 500px;
   display: flex;
@@ -35,17 +41,24 @@ body{
 }
 #instructions{
   width: 500px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bolder;
   display: flex;
   flex-direction: column;
 }
 #instructions li{
   list-style: none;
+  
 }
 
 #specialHabilities{
   width: 500px;
+  font-size: 20px;
+}
+#play-instructions-container{
+  font-size: 15px;
+  font-weight: bold;
+
 }
 #start-container {
 display: flex;
@@ -74,6 +87,7 @@ align-items: center;
   cursor:pointer;
   width: 900px;
   
+  
 }
 #play-instructions-container{
 display: none;
@@ -90,12 +104,20 @@ color: yellow;
  display: flex;
  flex-direction: row;
  align-items:stretch;
+ width: 100%;
 }
 #score-container{
   margin-left: 50px;
   display: none;
+  width: 100%;
+  flex-direction: column;
+}
+#score-container img{
+  margin-left: 50px;
+  align-items: center;
   
 }
+
 #scoreP{
 color: yellow;
 font-size: 90px;
@@ -106,18 +128,22 @@ font-size: 90px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  
+  
+
 }
 #abilities{
   display: flex;
   flex-direction: row;
 }
 #shield{
-  width: 180px;
+  width: 130px;
   display: none;
 }
 #superShot{
-  width: 9ss  0px;
-
+  width: 110px;
+  height: 120px;
   display: none;
 }
 /*  Volume */
@@ -125,41 +151,41 @@ font-size: 90px;
   display: flex;
   justify-content: center;
   width: 800px;
-  margin-right: 450px;
+  margin-right: 61%;
 }
 #volumeBtn{
-  height: 130px;
+  height: 70px;
   display:none ;
 }
 #noVolumeBtn{
-  height: 130px;
+  height: 70px;
   display: none
   
 }
 #volumeBtn:hover{
  cursor: pointer;
- height: 170px;
+ height: 80px;
 }
 #noVolumeBtn:hover{
   cursor: pointer;
-  height: 170px;
+  height: 80px;
 }
 #masVolumeBtn{
-  height: 130px;
+  height: 70px;
   display: none
 }
 #menosVolumeBtn{
-  height: 130px;
+  height: 70px;
   display: none
 
 }
 #masVolumeBtn:hover{
   cursor: pointer;
-  height: 170px;
+  height: 80px;
 }
 #menosVolumeBtn:hover{
   cursor: pointer;
-  height: 170px;
+  height: 80px;
 
 }
 
@@ -177,7 +203,7 @@ display: none;
 }
 #restartBtn {
   width: 500px;
-  margin-left:25% ;
+  margin-left:10% ;
 }
 
 #restartBtn:hover {

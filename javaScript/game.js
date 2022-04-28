@@ -118,7 +118,12 @@ class Game {
         menosVolumenDom.style.display='none'
         playInstuctionDom.style.display="none"
         supershotDom.style.display="none"
-        
+        scoreContainer.style.textAlign = "center";
+        logoTwoDom.style.display='none'
+
+
+        logoContainer.style.display='flex'
+        superShotActivate=false
       } else {
         shield = false; 
       }
@@ -142,6 +147,10 @@ class Game {
           menosVolumenDom.style.display='none'
           playInstuctionDom.style.display="none"
           supershotDom.style.display="none"
+          logoContainer.style.display='flex'
+          scoreContainer.style.textAlign = "center";
+          logoTwoDom.style.display='none'
+          superShotActivate=false
         } else {
           shield = false;
           this.enemiArr.splice(ie, 1);

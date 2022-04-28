@@ -1,6 +1,7 @@
 // GLOBAL VARIABLES
 const canvasDOM = document.querySelector("#my-canvas");
 const ctx = canvasDOM.getContext("2d");
+const logoContainer= document.querySelector('#logo-container')
 const startBtn = document.querySelector("#startBtn");
 const startScreen = document.querySelector("#start-container");
 const gameOverScreen = document.querySelector("#gameOverScreen");
@@ -14,6 +15,7 @@ const masVolumenDom = document.querySelector("#masVolumeBtn");
 const menosVolumenDom = document.querySelector("#menosVolumeBtn");
 const playInstuctionDom=document.querySelector("#play-instructions-container")
 const supershotDom=document.querySelector("#superShot")
+const logoTwoDom=document.querySelector('#logo-img2')
 let game;
 let counter = 0;
 let supershotCounter=0;
@@ -28,16 +30,21 @@ const startGame = () => {
   bgSound.load()
   bgSound.play();
   bgSound.volume = 0.2;
+  ame.shotSound.volume = 0.2;
+  game.splosionSound.volume = 0.2;
   counter = 0;
   score.innerText = counter;
   canvasDOM.style.display = "flex";
   startScreen.style.display = "none";
   gameOverScreen.style.display = "none";
-  scoreContainer.style.display = "block";
+  scoreContainer.style.display = "flex";
   noVolumeDom.style.display = "flex";
   masVolumenDom.style.display = "flex";
   menosVolumenDom.style.display = "flex";
   playInstuctionDom.style.display="block"
+  logoContainer.style.display='none'
+  scoreContainer.style.textAlign = "";
+  logoTwoDom.style.display='flex'
   game = new Game();
 
   game.gameLoop();
