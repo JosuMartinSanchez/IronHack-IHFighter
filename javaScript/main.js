@@ -30,8 +30,6 @@ const startGame = () => {
   bgSound.load()
   bgSound.play();
   bgSound.volume = 0.2;
-  ame.shotSound.volume = 0.2;
-  game.splosionSound.volume = 0.2;
   counter = 0;
   score.innerText = counter;
   canvasDOM.style.display = "flex";
@@ -90,6 +88,7 @@ const volumeOn = () => {
   bgSound.volume = 0.2;
   game.shotSound.volume = 0.2;
   game.splosionSound.volume = 0.2;
+  game.gameOverSound.volume= 0.2;
   noVolumeDom.style.display = "flex";
   volumeDom.style.display = "none";
 };
@@ -98,6 +97,7 @@ const volumeOf = () => {
   bgSound.volume = 0.0;
   game.shotSound.volume = 0;
   game.splosionSound.volume = 0;
+  game.gameOverSound.volume = 0;
   volumeDom.style.display = "flex";
   noVolumeDom.style.display = "none";
 };
@@ -105,12 +105,14 @@ const masVolumen = () => {
   bgSound.volume = bgSound.volume + 0.1;
   game.shotSound.volume = game.shotSound.volume + 0.1;
   game.splosionSound.volume = game.splosionSound.volume + 0.1;
+  game.gameOverSound.volume = game.gameOverSound.volume + 0.1;
 };
 
 const menosVolumen = () => {
   bgSound.volume = bgSound.volume - 0.1;
   game.shotSound.volume = game.shotSound.volume - 0.1;
   game.splosionSound.volume = game.splosionSound.volume - 0.1;
+  game.gameOverSound.volume = game.gameOverSound.volume -0.1;
 };
 
 //ADD EVENT LISTENERS

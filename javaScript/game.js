@@ -12,6 +12,7 @@ class Game {
 
     this.shotSound = new Audio("./audio/shootSound.mp3");
     this.splosionSound = new Audio("./audio/explosionSound.mp3");
+    this.gameOverSound = new Audio("./audio/gameOver.mp3");
     
   }
 
@@ -120,10 +121,9 @@ class Game {
         supershotDom.style.display="none"
         scoreContainer.style.textAlign = "center";
         logoTwoDom.style.display='none'
-
-
         logoContainer.style.display='flex'
         superShotActivate=false
+        this.gameOverSound.play()
       } else {
         shield = false; 
       }
@@ -151,6 +151,7 @@ class Game {
           scoreContainer.style.textAlign = "center";
           logoTwoDom.style.display='none'
           superShotActivate=false
+          this.gameOverSound.play()
         } else {
           shield = false;
           this.enemiArr.splice(ie, 1);
