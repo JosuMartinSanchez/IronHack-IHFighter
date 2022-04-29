@@ -29,7 +29,7 @@ const startGame = () => {
   bgSound.preload = "auto";
   bgSound.load()
   bgSound.play();
-  bgSound.volume = 0.2;
+  bgSound.volume = 1;
   counter = 0;
   score.innerText = counter;
   canvasDOM.style.display = "flex";
