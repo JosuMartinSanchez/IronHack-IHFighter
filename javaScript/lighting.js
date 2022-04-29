@@ -14,12 +14,4 @@ class Lighting {
   movelighting = () => {
     this.y = this.y - this.moveSpeed;
   };
-  drawlsuperighting = () => {
-    ctx.drawImage(this.img, this.x + 20, this.y, this.w, this.h);
-    ctx.drawImage(this.img, this.x + 50, this.y, this.w, this.h);
-    ctx.drawImage(this.img, this.x + 100, this.y, this.w, this.h);
-    ctx.drawImage(this.img, this.x - 20, this.y, this.w, this.h);
-    ctx.drawImage(this.img, this.x - 50, this.y, this.w, this.h);
-    ctx.drawImage(this.img, this.x - 100, this.y, this.w, this.h);
-  };
 }
