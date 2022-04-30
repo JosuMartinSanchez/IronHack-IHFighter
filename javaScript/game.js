@@ -20,14 +20,14 @@ class Game {
     let randonEnemi = Math.random() * (canvasDOM.width - this.myAeroplane.w);
     let randomEnemi2 = Math.random() * (canvasDOM.width - this.myAeroplane.w);
     let speedIncrease = 0.2;
-    if (counter >= 10) {
+    if (counter >= 150) {
+      speedIncrease = 1;
+      
+    } else if (counter >= 80) {
+      
       speedIncrease = 0.8;
-      
-    } else if (counter >= 5) {
-      
-      speedIncrease = 0.5;
-    }else if(counter >= 2){
-      speedIncrease=0.2
+    }else if(counter >= 30){
+      speedIncrease=0.5
     }
     while (randomEnemi2 < randonEnemi + 90 && randomEnemi2 > randonEnemi) {
       randomEnemi2 = Math.random() * (canvasDOM.width - this.myAeroplane.w);
@@ -185,10 +185,10 @@ class Game {
   };
   shieldActivate = () => {
     if (
-      counter === 2 ||
+      counter === 20 ||
+      counter === 60 ||
       counter === 100 ||
-      counter === 150 ||
-      counter === 200
+      counter === 180
     ) {
       shield = true;
     }
@@ -201,8 +201,8 @@ class Game {
   };
   supershotActivate =()=>{
     if (
-      counter === 2 ||
-      counter === 100 ||
+      counter === 40 ||
+      counter === 80 ||
       counter === 150 ||
       counter === 200
     ) {
